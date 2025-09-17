@@ -13,3 +13,16 @@ services:
     volumes:
       - "./conf.d:/etc/mysql/conf.d:ro"
 
+  app:
+    build: .
+    container_name: gerenciamento-de-tarefas-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/db_example
+      - SPRING_DATASOURCE_USERNAME=springuser
+      - SPRING_DATASOURCE_PASSWORD=ThePassword
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
