@@ -11,7 +11,7 @@ services:
       - MYSQL_DATABASE=db_example
       - MYSQL_ROOT_PASSWORD=root
     volumes:
-      - "./conf.d:/etc/mysql/conf.d:ro"
+      - mysql_data:/var/lib/mysql
 
   app:
     build: .
@@ -25,4 +25,7 @@ services:
       - SPRING_DATASOURCE_USERNAME=springuser
       - SPRING_DATASOURCE_PASSWORD=ThePassword
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+volumes:
+  mysql_data:
 
