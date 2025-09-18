@@ -47,6 +47,26 @@ Projeto de API RESTful para gerenciamento de tarefas internas, desenvolvido em J
 | GET | `/tasks/{taskId}` | Busca tarefa por ID                                 |
 | PATCH | `/tasks/{taskId}/status` | Atualiza status da tarefa                           |
 
+## 📌 Decisões Técnicas
+
+Spring Boot 3 + Java 21: escolhido por ser moderno, estável e amplamente utilizado no mercado.
+
+JPA/Hibernate: abstrai o acesso ao banco de dados relacional, simplificando o mapeamento objeto-relacional.
+
+Banco de dados MySQL: rodando em container Docker para garantir portabilidade e facilidade de execução.
+
+Validações com Jakarta Validation: asseguram a integridade dos dados já na entrada (camada DTO).
+
+DTOs distintos para criação e atualização: evita expor diretamente a entidade User ou Task e melhora a manutenibilidade.
+
+Enum para Status da Tarefa: restringe valores válidos (PENDENTE, EM_ANDAMENTO, CONCLUIDA) e facilita regras de negócio.
+
+Atualização automática do completionDate: sempre que uma tarefa é marcada como CONCLUIDA.
+
+Dockerfile + docker-compose: permitem rodar a aplicação e o banco de dados em qualquer máquina sem necessidade de configuração manual.
+
+Arquitetura em camadas (Controller, Service, Repository): melhora a organização, testabilidade e manutenção do código.
+
 ---
 
 ## 🐳 Rodando com Docker
