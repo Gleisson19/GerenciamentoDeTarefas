@@ -74,4 +74,8 @@ Projeto de API RESTful para gerenciamento de tarefas internas, desenvolvido em J
 1. Build e start dos containers:
 
 ```bash
-docker-compose up --build
+docker compose up --build
+
+2. A aplicação ficará disponível em:
+
+- API: http://localhost:8080
